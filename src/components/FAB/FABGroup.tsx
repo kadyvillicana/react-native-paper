@@ -238,6 +238,11 @@ class FABGroup extends React.Component<Props, State> {
         })
       : this.state.backdrop;
 
+      const backgroundColor = theme.dark
+      ? colors.surface
+      : color(colors.surface).fade(0.54).rgb().string();
+
+
     const opacities = this.state.animations;
     const scales = opacities.map((opacity) =>
       open
@@ -278,6 +283,7 @@ class FABGroup extends React.Component<Props, State> {
                         {
                           transform: [{ scale: scales[i] }],
                           opacity: opacities[i],
+                          backgroundColor: backgroundColor,
                         },
                       ] as StyleProp<ViewStyle>
                     }
