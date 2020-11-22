@@ -234,6 +234,10 @@ const FABGroup = ({
       })
     : backdrop;
 
+  const backgroundColor = theme.dark
+  ? colors.surface
+  : color(colors.surface).fade(0.54).rgb().string();
+
   const opacities = animations.current;
   const scales = opacities.map((opacity) =>
     open
@@ -281,6 +285,7 @@ const FABGroup = ({
                       {
                         transform: [{ scale: scales[i] }],
                         opacity: opacities[i],
+                        backgroundColor: backgroundColor,
                       },
                     ] as StyleProp<ViewStyle>
                   }
